@@ -139,12 +139,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
         return .failure(error)
     }
 
-    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated, potential memory leak!", file: file, line: line)
-        }
-    }
-
     private func makeItemsJSON(_ values: [[String: Any]]) -> Data {
         let items = ["items": values]
         return try! JSONSerialization.data(withJSONObject: items)
