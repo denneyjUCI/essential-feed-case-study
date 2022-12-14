@@ -1,8 +1,6 @@
 import XCTest
 
 class HTTPClient {
-    static var shared = HTTPClient()
-
     func get(from url: URL) {}
 }
 
