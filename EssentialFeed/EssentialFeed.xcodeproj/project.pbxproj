@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		EA7AB81329496F5D0075EF74 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7AB80829496F5D0075EF74 /* EssentialFeed.framework */; };
 		EA7AB81829496F5D0075EF74 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB81729496F5D0075EF74 /* EssentialFeedTests.swift */; };
-		EA7AB82329496F6D0075EF74 /* EssentialFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB82229496F6D0075EF74 /* EssentialFeed.swift */; };
+		EA7AB82529496F880075EF74 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB82429496F880075EF74 /* FeedItem.swift */; };
+		EA7AB82729496FAB0075EF74 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB82629496FAB0075EF74 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,7 +27,8 @@
 		EA7AB80829496F5D0075EF74 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7AB81229496F5D0075EF74 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7AB81729496F5D0075EF74 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
-		EA7AB82229496F6D0075EF74 /* EssentialFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeed.swift; sourceTree = "<group>"; };
+		EA7AB82429496F880075EF74 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		EA7AB82629496FAB0075EF74 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +71,8 @@
 		EA7AB80A29496F5D0075EF74 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				EA7AB82229496F6D0075EF74 /* EssentialFeed.swift */,
+				EA7AB82429496F880075EF74 /* FeedItem.swift */,
+				EA7AB82629496FAB0075EF74 /* FeedLoader.swift */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
@@ -191,7 +194,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA7AB82329496F6D0075EF74 /* EssentialFeed.swift in Sources */,
+				EA7AB82729496FAB0075EF74 /* FeedLoader.swift in Sources */,
+				EA7AB82529496F880075EF74 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
