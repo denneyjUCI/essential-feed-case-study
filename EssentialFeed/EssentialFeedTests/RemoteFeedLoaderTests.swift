@@ -43,7 +43,8 @@ final class RemoteFeedLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
-                client.complete(withStatusCode: code, at: index)
+                let json = makeItemsJSON([])
+                client.complete(withStatusCode: code, data: json, at: index)
             })
         }
     }
@@ -61,7 +62,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
 
         expect(sut, toCompleteWithResult: .success([]), when: {
-            let validJSON = Data("{ \"items\": []}".utf8)
+            let validJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data: validJSON)
         })
     }
@@ -77,10 +78,9 @@ final class RemoteFeedLoaderTests: XCTestCase {
                              location: "a location",
                              imageURL: URL(string: "http://another-url.com")!)
 
-        let itemsJSON = ["items": [item1.json, item2.json]]
+        let itemsJSON = makeItemsJSON([item1.json, item2.json])
         expect(sut, toCompleteWithResult: .success([item1.model, item2.model]), when: {
-            let data = try! JSONSerialization.data(withJSONObject: itemsJSON)
-            client.complete(withStatusCode: 200, data: data)
+            client.complete(withStatusCode: 200, data: itemsJSON)
         })
     }
 
@@ -109,6 +109,11 @@ final class RemoteFeedLoaderTests: XCTestCase {
         addTeardownBlock { [weak instance] in
             XCTAssertNil(instance, "Instance should have been deallocated, potential memory leak!", file: file, line: line)
         }
+    }
+
+    private func makeItemsJSON(_ values: [[String: Any]]) -> Data {
+        let items = ["items": values]
+        return try! JSONSerialization.data(withJSONObject: items)
     }
 
     private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
@@ -145,7 +150,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
             messages[index].completion(.failure(error))
         }
 
-        func complete(withStatusCode code: Int, data: Data = Data(), at index: Int = 0) {
+        func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
             let response = HTTPURLResponse(
                 url: requestedURLs[index],
                 statusCode: code,
