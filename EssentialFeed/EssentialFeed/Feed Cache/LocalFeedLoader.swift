@@ -1,7 +1,4 @@
 //
-//  LocalFeedLoader.swift
-//  EssentialFeed
-//
 //  Created by Jonathan Denney on 12/28/22.
 //
 
@@ -19,13 +16,13 @@ public final class LocalFeedLoader {
         self.currentDate = currentDate
     }
 
-    public func save(_ items: [FeedImage], completion: @escaping (SaveResult) -> Void) {
+    public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedFeed { [weak self] error in
             guard let self = self else { return }
             if let deletionError = error {
                 completion(deletionError)
             } else {
-                self.cache(items, with: completion)
+                self.cache(feed, with: completion)
             }
         }
     }

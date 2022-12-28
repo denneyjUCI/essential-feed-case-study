@@ -1,7 +1,4 @@
 //
-//  FeedItemsMapper.swift
-//  EssentialFeed
-//
 //  Created by Jonathan Denney on 12/14/22.
 //
 
