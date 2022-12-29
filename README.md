@@ -69,17 +69,21 @@ Then the app should display an error message
 
 #### Primary course:
 1. Execute "Load Image Feed" command
-2. System fetches feed data from cache.
+2. System retrieves feed data from cache.
 3. System validates cache age.
 4. System creates image feed from cached data.
 5. System delivers image feed.
 
 #### Expired cache course (sad path): 
-1. System delivers no image feed.
+1. System deletes cache
+2. System delivers error.
+
+#### Expired cache course (sad path): 
+1. System deletes cache.
+2. System delivers no feed images.
 
 #### Empty cache course (sad path): 
-1. System delivers no image feed.
-
+1. System delivers no feed images.
 
 ### Cache Feed Use Case
 
