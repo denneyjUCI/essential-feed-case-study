@@ -65,13 +65,10 @@ Then the app should display an error message
 #### No connectivity – error course (sad path):
 1. System delivers error.
 
-### Load Feed Fallback (Cache) Use Case
-
-#### Data:
-- Max age
+### Load Feed From Cache Use Case
 
 #### Primary course:
-1. Execute "Retrieve Image Feed" command with above data.
+1. Execute "Load Image Feed" command
 2. System fetches feed data from cache.
 3. System validates cache age.
 4. System creates image feed from cached data.
