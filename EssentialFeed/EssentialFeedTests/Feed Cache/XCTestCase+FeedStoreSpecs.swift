@@ -9,6 +9,108 @@ import XCTest
 import EssentialFeed
 
 extension FeedStoreSpecs where Self: XCTestCase {
+
+    func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        expect(sut, toRetrieve: .empty, file: file, line: line)
+    }
+
+    func assertThatRetrieveHasNoSideEffectOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        expect(sut, toRetrieveTwice: .empty, file: file, line: line)
+    }
+
+    func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        let feed = uniqueImageFeed().local
+        let timestamp = Date()
+
+        insert((feed, timestamp), to: sut)
+
+        expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp), file: file, line: line)
+    }
+
+    func assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        let feed = uniqueImageFeed().local
+        let timestamp = Date()
+
+        insert((feed, timestamp), to: sut)
+        expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp), file: file, line: line)
+    }
+
+    func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: FeedStore) {
+        let insertionError = insert((uniqueImageFeed().local, Date()), to: sut)
+        XCTAssertNil(insertionError, "Expected to insert cache successfully")
+    }
+
+    func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: FeedStore) {
+        insert((uniqueImageFeed().local, Date()), to: sut)
+
+        let latestInsertionError = insert((uniqueImageFeed().local, Date()), to: sut)
+
+        XCTAssertNil(latestInsertionError, "Expected to overwrite cache successfully")
+    }
+
+    func assertThatDeleteDeliversNoErrorOnEmptyCache(on sut: FeedStore) {
+        let deletionError = deleteCache(from: sut)
+        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
+    }
+
+    func assertThatDeleteHasNoSideEffectsOnEmptyCache(on sut: FeedStore) {
+        deleteCache(from: sut)
+
+        expect(sut, toRetrieve: .empty)
+    }
+
+    func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: FeedStore) {
+        insert((feed: uniqueImageFeed().local, Date()), to: sut)
+
+        let deletionError = deleteCache(from: sut)
+        XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
+    }
+
+    func assertThatDeleteRemovesNonEmptyCache(on sut: FeedStore) {
+        insert((feed: uniqueImageFeed().local, Date()), to: sut)
+
+        let deletionError = deleteCache(from: sut)
+        XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
+
+        expect(sut, toRetrieve: .empty)
+    }
+
+    func assertThatSideEffectsRunSerially(on sut: FeedStore) {
+        var completedOperationsInOrder = [XCTestExpectation]()
+
+        let op1 = expectation(description: "Operation 1")
+        sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+            completedOperationsInOrder.append(op1)
+            op1.fulfill()
+        }
+
+        let op2 = expectation(description: "Operation 2")
+        sut.deleteCachedFeed { _ in
+            completedOperationsInOrder.append(op2)
+            op2.fulfill()
+        }
+
+        let op3 = expectation(description: "Operation 3")
+        sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+            completedOperationsInOrder.append(op3)
+            op3.fulfill()
+        }
+
+        waitForExpectations(timeout: 5.0)
+
+        XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially, got \(completedOperationsInOrder) instead")
+    }
+
+    func assertThatInsertOverridesPreviouslyInsertedCacheValues(on sut: FeedStore) {
+        insert((uniqueImageFeed().local, Date()), to: sut)
+
+        let latestFeed = uniqueImageFeed().local
+        let latestTimestamp = Date()
+        insert((latestFeed, latestTimestamp), to: sut)
+
+        expect(sut, toRetrieve: .found(feed: latestFeed, timestamp: latestTimestamp))
+    }
+    
     @discardableResult
     func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) -> Error? {
         let exp = expectation(description: "Wait for insertion completion")
