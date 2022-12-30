@@ -134,7 +134,7 @@ class CodableFeedStoreTests: XCTestCase {
 
     @discardableResult
     private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) -> Error? {
-        let exp = expectation(description: "Wait for cache retrieval")
+        let exp = expectation(description: "Wait for insertion completion")
         var insertionError: Error?
         sut.insert(cache.feed, timestamp: cache.timestamp) { receivedInsertionError in
             insertionError = receivedInsertionError
