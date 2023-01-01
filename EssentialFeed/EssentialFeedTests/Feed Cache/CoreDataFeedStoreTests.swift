@@ -63,7 +63,9 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
 
     func test_delete_removesNonEmptyCache() {
+        let sut = makeSUT()
 
+        assertThatDeleteRemovesNonEmptyCache(on: sut)
     }
 
     func test_storeSideEffects_runSerially() {
