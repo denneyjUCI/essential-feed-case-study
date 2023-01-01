@@ -39,6 +39,7 @@
 		EA7AB82D294974440075EF74 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB82C294974440075EF74 /* RemoteFeedLoader.swift */; };
 		EA7AB82F294A3DAF0075EF74 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB82E294A3DAF0075EF74 /* HTTPClient.swift */; };
 		EA7AB831294A3DD00075EF74 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB830294A3DD00075EF74 /* FeedItemsMapper.swift */; };
+		EAD4315929621EE500646DA9 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		EA7AB82C294974440075EF74 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		EA7AB82E294A3DAF0075EF74 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		EA7AB830294A3DD00075EF74 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
+		EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				EA66BB97295D0CAD003BA0E8 /* LocalFeedImage.swift */,
 				EA51FA40295E4B7200433CB6 /* FeedCachePolicy.swift */,
 				EA51FA44295F6B9500433CB6 /* CodableFeedStore.swift */,
+				EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				EA7AB82F294A3DAF0075EF74 /* HTTPClient.swift in Sources */,
 				EA7AB82529496F880075EF74 /* FeedImage.swift in Sources */,
 				EA66BB7B294A7ECF003BA0E8 /* URLSessionHTTPClient.swift in Sources */,
+				EAD4315929621EE500646DA9 /* CoreDataFeedStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
