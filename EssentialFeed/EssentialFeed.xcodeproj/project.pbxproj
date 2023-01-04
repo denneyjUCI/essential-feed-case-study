@@ -59,6 +59,7 @@
 		EAD4316D29661AD200646DA9 /* FeedViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316C29661AD200646DA9 /* FeedViewController+TestHelpers.swift */; };
 		EAD4316F29661B3100646DA9 /* UIControl+Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316E29661B3100646DA9 /* UIControl+Simulation.swift */; };
 		EAD4317129661B9E00646DA9 /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4317029661B9E00646DA9 /* FeedImageCell+TestHelpers.swift */; };
+		EAD4317529661D5300646DA9 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4317429661D5300646DA9 /* FeedRefreshViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		EAD4316C29661AD200646DA9 /* FeedViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		EAD4316E29661B3100646DA9 /* UIControl+Simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Simulation.swift"; sourceTree = "<group>"; };
 		EAD4317029661B9E00646DA9 /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
+		EAD4317429661D5300646DA9 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				EA51FB012965E78500433CB6 /* FeedViewController.swift */,
+				EAD4317429661D5300646DA9 /* FeedRefreshViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAD4316429661A2800646DA9 /* FeedImageDataLoader.swift in Sources */,
+				EAD4317529661D5300646DA9 /* FeedRefreshViewController.swift in Sources */,
 				EA51FB062966029400433CB6 /* UIView+Shimmering.swift in Sources */,
 				EA51FB022965E78500433CB6 /* FeedViewController.swift in Sources */,
 				EA51FB042965F06500433CB6 /* FeedImageCell.swift in Sources */,
