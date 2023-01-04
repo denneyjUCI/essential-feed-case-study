@@ -54,6 +54,10 @@
 		EA7AB831294A3DD00075EF74 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB830294A3DD00075EF74 /* FeedItemsMapper.swift */; };
 		EAD4315929621EE500646DA9 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */; };
 		EAD4316429661A2800646DA9 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316329661A2800646DA9 /* FeedImageDataLoader.swift */; };
+		EAD4316B29661AB600646DA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316A29661AB600646DA9 /* UIImage+Color.swift */; };
+		EAD4316D29661AD200646DA9 /* FeedViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316C29661AD200646DA9 /* FeedViewController+TestHelpers.swift */; };
+		EAD4316F29661B3100646DA9 /* UIControl+Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316E29661B3100646DA9 /* UIControl+Simulation.swift */; };
+		EAD4317129661B9E00646DA9 /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4317029661B9E00646DA9 /* FeedImageCell+TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +136,10 @@
 		EA7AB830294A3DD00075EF74 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
 		EAD4316329661A2800646DA9 /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
+		EAD4316A29661AB600646DA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		EAD4316C29661AD200646DA9 /* FeedViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		EAD4316E29661B3100646DA9 /* UIControl+Simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Simulation.swift"; sourceTree = "<group>"; };
+		EAD4317029661B9E00646DA9 /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +245,8 @@
 		EA51FAF42965045400433CB6 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				EA51FAFE2965DF9600433CB6 /* FeedViewControllerTests.swift */,
+				EAD4317329661BF900646DA9 /* Helpers */,
+				EAD4316829661A9100646DA9 /* Feed UI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -400,6 +409,41 @@
 				EA51FB052966029400433CB6 /* UIView+Shimmering.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EAD4316829661A9100646DA9 /* Feed UI */ = {
+			isa = PBXGroup;
+			children = (
+				EAD4316929661A9900646DA9 /* Helpers */,
+				EAD4317229661BD200646DA9 /* Controllers */,
+			);
+			path = "Feed UI";
+			sourceTree = "<group>";
+		};
+		EAD4316929661A9900646DA9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EAD4316C29661AD200646DA9 /* FeedViewController+TestHelpers.swift */,
+				EAD4317029661B9E00646DA9 /* FeedImageCell+TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EAD4317229661BD200646DA9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA51FAFE2965DF9600433CB6 /* FeedViewControllerTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EAD4317329661BF900646DA9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EAD4316A29661AB600646DA9 /* UIImage+Color.swift */,
+				EAD4316E29661B3100646DA9 /* UIControl+Simulation.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -659,8 +703,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD4316D29661AD200646DA9 /* FeedViewController+TestHelpers.swift in Sources */,
+				EAD4317129661B9E00646DA9 /* FeedImageCell+TestHelpers.swift in Sources */,
 				EA51FAFF2965DF9600433CB6 /* FeedViewControllerTests.swift in Sources */,
 				EA51FB002965E24400433CB6 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				EAD4316B29661AB600646DA9 /* UIImage+Color.swift in Sources */,
+				EAD4316F29661B3100646DA9 /* UIControl+Simulation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
