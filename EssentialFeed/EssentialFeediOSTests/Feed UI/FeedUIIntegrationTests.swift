@@ -260,12 +260,12 @@ final class FeedUIIntegrationTests: XCTestCase {
         sut.loadViewIfNeeded()
 
         let exp = expectation(description: "Wait for background queue")
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global().async {
             loader.completeFeedLoading(at: 0)
             exp.fulfill()
         }
 
-        wait(for: [exp], timeout: 1)
+        wait(for: [exp], timeout: 0.1)
     }
 
     // MARK: - Helpers
