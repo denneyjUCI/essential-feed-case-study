@@ -11,9 +11,6 @@
 		EA17E90929662C8400799F6E /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E90829662C8400799F6E /* FeedImageCellController.swift */; };
 		EA17E90C29662EFA00799F6E /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E90B29662EFA00799F6E /* FeedUIComposer.swift */; };
 		EA17E91129672E9100799F6E /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E91029672E9100799F6E /* FeedImageViewModel.swift */; };
-		EA17E9132967327500799F6E /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E9122967327500799F6E /* FeedPresenter.swift */; };
-		EA17E91529673AB200799F6E /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E91429673AB200799F6E /* FeedLoadingViewModel.swift */; };
-		EA17E91729673AC500799F6E /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E91629673AC500799F6E /* FeedViewModel.swift */; };
 		EA17E91929673B8E00799F6E /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E91829673B8E00799F6E /* FeedImagePresenter.swift */; };
 		EA17E91B2967447000799F6E /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E91A2967447000799F6E /* WeakRefVirtualProxy.swift */; };
 		EA17E91D2967449A00799F6E /* FeedLoaderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E91C2967449A00799F6E /* FeedLoaderAdapter.swift */; };
@@ -26,11 +23,9 @@
 		EA17E92E29676BE200799F6E /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E92D29676BE200799F6E /* FeedViewControllerTests+Localization.swift */; };
 		EA17E93029676C3500799F6E /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E92F29676C3500799F6E /* FeedViewControllerTests+LoaderSpy.swift */; };
 		EA17E93229676C6900799F6E /* FeedViewControllerTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E93129676C6900799F6E /* FeedViewControllerTests+Assertions.swift */; };
-		EA17E93329676D7100799F6E /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA17E93529676D7100799F6E /* Feed.strings */; };
 		EA17E93A29676EAA00799F6E /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E93929676EAA00799F6E /* FeedLocalizationTests.swift */; };
 		EA17E93C29677E5C00799F6E /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E93B29677E5C00799F6E /* MainQueueDispatchDecorator.swift */; };
 		EA17E93E2967839000799F6E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E93D2967839000799F6E /* ErrorView.swift */; };
-		EA17E9412967861800799F6E /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E9402967861800799F6E /* FeedErrorViewModel.swift */; };
 		EA17E9432967864800799F6E /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E9422967864800799F6E /* UIRefreshControl+Helpers.swift */; };
 		EA17E9462967912B00799F6E /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E9452967912B00799F6E /* FeedPresenterTests.swift */; };
 		EA17E950296796AB00799F6E /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E94F296796AB00799F6E /* FeedPresenter.swift */; };
@@ -133,9 +128,6 @@
 		EA17E90829662C8400799F6E /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
 		EA17E90B29662EFA00799F6E /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		EA17E91029672E9100799F6E /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
-		EA17E9122967327500799F6E /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
-		EA17E91429673AB200799F6E /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
-		EA17E91629673AC500799F6E /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		EA17E91829673B8E00799F6E /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
 		EA17E91A2967447000799F6E /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		EA17E91C2967449A00799F6E /* FeedLoaderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderAdapter.swift; sourceTree = "<group>"; };
@@ -148,13 +140,9 @@
 		EA17E92D29676BE200799F6E /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
 		EA17E92F29676C3500799F6E /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		EA17E93129676C6900799F6E /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
-		EA17E93429676D7100799F6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
-		EA17E93629676D9200799F6E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
-		EA17E93729676DC500799F6E /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		EA17E93929676EAA00799F6E /* FeedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLocalizationTests.swift; sourceTree = "<group>"; };
 		EA17E93B29677E5C00799F6E /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		EA17E93D2967839000799F6E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		EA17E9402967861800799F6E /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
 		EA17E9422967864800799F6E /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
 		EA17E9452967912B00799F6E /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
 		EA17E94A296795FB00799F6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
@@ -288,13 +276,8 @@
 		EA17E90D29671EB700799F6E /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				EA17E9122967327500799F6E /* FeedPresenter.swift */,
-				EA17E9402967861800799F6E /* FeedErrorViewModel.swift */,
-				EA17E91629673AC500799F6E /* FeedViewModel.swift */,
-				EA17E91429673AB200799F6E /* FeedLoadingViewModel.swift */,
 				EA17E91029672E9100799F6E /* FeedImageViewModel.swift */,
 				EA17E91829673B8E00799F6E /* FeedImagePresenter.swift */,
-				EA17E93529676D7100799F6E /* Feed.strings */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
@@ -791,7 +774,6 @@
 			files = (
 				EA17E9232967454D00799F6E /* Feed.storyboard in Resources */,
 				EA17E9252967461F00799F6E /* Feed.xcassets in Resources */,
-				EA17E93329676D7100799F6E /* Feed.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,25 +824,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA17E9132967327500799F6E /* FeedPresenter.swift in Sources */,
 				EAD4316429661A2800646DA9 /* FeedImageDataLoader.swift in Sources */,
 				EA17E93E2967839000799F6E /* ErrorView.swift in Sources */,
 				EA17E9432967864800799F6E /* UIRefreshControl+Helpers.swift in Sources */,
 				EA51FB062966029400433CB6 /* UIView+Shimmering.swift in Sources */,
 				EA51FB022965E78500433CB6 /* FeedViewController.swift in Sources */,
-				EA17E91729673AC500799F6E /* FeedViewModel.swift in Sources */,
 				EA17E91F296744B600799F6E /* FeedLoaderPresentationAdapter.swift in Sources */,
 				EA51FB042965F06500433CB6 /* FeedImageCell.swift in Sources */,
 				EA17E91129672E9100799F6E /* FeedImageViewModel.swift in Sources */,
 				EA17E91D2967449A00799F6E /* FeedLoaderAdapter.swift in Sources */,
-				EA17E91529673AB200799F6E /* FeedLoadingViewModel.swift in Sources */,
 				EA17E93C29677E5C00799F6E /* MainQueueDispatchDecorator.swift in Sources */,
 				EA17E90929662C8400799F6E /* FeedImageCellController.swift in Sources */,
 				EA17E921296744D500799F6E /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
 				EA17E91929673B8E00799F6E /* FeedImagePresenter.swift in Sources */,
 				EA17E91B2967447000799F6E /* WeakRefVirtualProxy.swift in Sources */,
 				EA17E90C29662EFA00799F6E /* FeedUIComposer.swift in Sources */,
-				EA17E9412967861800799F6E /* FeedErrorViewModel.swift in Sources */,
 				EA17E92929675C6700799F6E /* UIImageView+Animation.swift in Sources */,
 				EA17E92729674FCB00799F6E /* UITableView+Dequeueing.swift in Sources */,
 			);
@@ -974,16 +952,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EA17E93529676D7100799F6E /* Feed.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA17E93429676D7100799F6E /* en */,
-				EA17E93629676D9200799F6E /* pt-BR */,
-				EA17E93729676DC500799F6E /* el */,
-			);
-			name = Feed.strings;
-			sourceTree = "<group>";
-		};
 		EA17E94B296795FB00799F6E /* Feed.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
