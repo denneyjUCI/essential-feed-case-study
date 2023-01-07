@@ -82,6 +82,7 @@
 		EA8461812968C6D80050B131 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316329661A2800646DA9 /* FeedImageDataLoader.swift */; };
 		EA8461832968C72B0050B131 /* RemoteFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461822968C72B0050B131 /* RemoteFeedImageDataLoaderTests.swift */; };
 		EA846192296935580050B131 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA846191296935580050B131 /* HTTPClientSpy.swift */; };
+		EA846195296935F80050B131 /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA846194296935F80050B131 /* RemoteFeedImageDataLoader.swift */; };
 		EAD4315929621EE500646DA9 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */; };
 		EAD4316B29661AB600646DA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316A29661AB600646DA9 /* UIImage+Color.swift */; };
 		EAD4316D29661AD200646DA9 /* FeedViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4316C29661AD200646DA9 /* FeedViewController+TestHelpers.swift */; };
@@ -200,6 +201,7 @@
 		EA8461762968A2A80050B131 /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
 		EA8461822968C72B0050B131 /* RemoteFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
 		EA846191296935580050B131 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		EA846194296935F80050B131 /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		EAD4315829621EE500646DA9 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
 		EAD4316329661A2800646DA9 /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
 		EAD4316A29661AB600646DA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				EA7AB830294A3DD00075EF74 /* FeedItemsMapper.swift */,
 				EA66BB95295D0C8D003BA0E8 /* RemoteFeedItem.swift */,
 				EA66BB7A294A7ECF003BA0E8 /* URLSessionHTTPClient.swift */,
+				EA846194296935F80050B131 /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				EA7AB82729496FAB0075EF74 /* FeedLoader.swift in Sources */,
 				EA8461772968A2A80050B131 /* FeedImageViewModel.swift in Sources */,
 				EA66BB96295D0C8D003BA0E8 /* RemoteFeedItem.swift in Sources */,
+				EA846195296935F80050B131 /* RemoteFeedImageDataLoader.swift in Sources */,
 				EA51FA41295E4B7200433CB6 /* FeedCachePolicy.swift in Sources */,
 				EA7AB82D294974440075EF74 /* RemoteFeedLoader.swift in Sources */,
 				EA66BB98295D0CAD003BA0E8 /* LocalFeedImage.swift in Sources */,
