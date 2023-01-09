@@ -82,16 +82,6 @@ class LoadImageDataFromCacheUseCaseTests: XCTestCase {
         XCTAssertTrue(received.isEmpty, "Expected no results after deallocation of SUT")
     }
 
-    func test_saveImageDataForURL_requestsImageInsertion() {
-        let (sut, store) = makeSUT()
-        let data = anyData()
-        let url = anyURL()
-
-        sut.save(data, for: url) { _ in }
-
-        XCTAssertEqual(store.receivedMessages, [.insert(data: data, for: url)])
-    }
-
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
         let store = FeedImageDataStoreSpy()
