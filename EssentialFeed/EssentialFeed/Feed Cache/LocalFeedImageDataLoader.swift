@@ -51,4 +51,8 @@ public class LocalFeedImageDataLoader {
         }
         return task
     }
+
+    public func save(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
+        store.insert(data, for: url)
+    }
 }
