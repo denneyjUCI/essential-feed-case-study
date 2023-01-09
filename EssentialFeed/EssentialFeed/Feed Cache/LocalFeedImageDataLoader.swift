@@ -59,7 +59,14 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
 
 extension LocalFeedImageDataLoader {
     public typealias SaveResult = Result<Void, Error>
+
+    public enum SaveError: Swift.Error {
+        case failed
+    }
+
     public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
-        store.insert(data, for: url)
+        store.insert(data, for: url) { _ in 
+            completion(.failure(SaveError.failed))
+        }
     }
 }
