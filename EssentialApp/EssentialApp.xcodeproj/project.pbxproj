@@ -20,6 +20,7 @@
 		EA8461DE296CAF110050B131 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461DD296CAF110050B131 /* FeedLoaderWithFallbackCompositeTests.swift */; };
 		EA8461E0296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461DF296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift */; };
 		EA8461E2296CB5C30050B131 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461E1296CB5C30050B131 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */; };
+		EA8461E4296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461E3296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		EA8461DD296CAF110050B131 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		EA8461DF296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		EA8461E1296CB5C30050B131 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
+		EA8461E3296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				EA8461DF296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift */,
+				EA8461E3296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				EA8461B4296CA8C40050B131 /* AppDelegate.swift */,
 				EA8461B6296CA8C40050B131 /* SceneDelegate.swift */,
 				EA8461B8296CA8C40050B131 /* ViewController.swift */,
@@ -243,6 +246,7 @@
 				EA8461B5296CA8C40050B131 /* AppDelegate.swift in Sources */,
 				EA8461E0296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				EA8461B7296CA8C40050B131 /* SceneDelegate.swift in Sources */,
+				EA8461E4296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
