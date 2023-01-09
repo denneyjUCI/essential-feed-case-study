@@ -4,8 +4,10 @@ import EssentialFeed
 class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
 
     private let primary: FeedImageDataLoader
+    private let fallback: FeedImageDataLoader
     init(primary: FeedImageDataLoader, fallback: FeedImageDataLoader) {
         self.primary = primary
+        self.fallback = fallback
     }
 
     private class TaskWrapper: FeedImageDataLoaderTask {
@@ -18,7 +20,21 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
 
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
         let task = TaskWrapper()
-        task.wrapped = primary.loadImageData(from: url, completion: completion)
+        task.wrapped = primary.loadImageData(from: url) { [weak self] result in
+            switch result {
+            case .success:
+                completion(result)
+            case .failure:
+                task.wrapped = self?.fallback.loadImageData(from: url) { result in
+                    switch result {
+                    case .success:
+                        completion(result)
+                    default:
+                        break
+                    }
+                }
+            }
+        }
         return task
     }
 
@@ -36,6 +52,26 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
             switch result {
             case let .success(data):
                 XCTAssertEqual(data, primaryData)
+
+            case .failure:
+                XCTFail("Expected load success, got \(result) instead")
+            }
+
+            exp.fulfill()
+        }
+
+        wait(for: [exp], timeout: 1.0)
+    }
+
+    func test_loadImageData_deliversFallbackDataOnPrimarySuccess() {
+        let fallbackData = Data("fallback".utf8)
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackData))
+
+        let exp = expectation(description: "Wait for image load completion")
+        _ = sut.loadImageData(from: anyURL()) { result in
+            switch result {
+            case let .success(data):
+                XCTAssertEqual(data, fallbackData)
 
             case .failure:
                 XCTFail("Expected load success, got \(result) instead")
@@ -65,6 +101,10 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
 
     func anyURL() -> URL {
         return URL(string: "http://any-url.com")!
+    }
+
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
 
     private class LoaderStub: FeedImageDataLoader {
