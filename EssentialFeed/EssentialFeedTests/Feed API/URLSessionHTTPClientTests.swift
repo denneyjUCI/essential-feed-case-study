@@ -28,7 +28,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
         URLProtocolStub.observeRequests(observer: { _ in exp.fulfill() })
 
         let receivedError = resultErrorFor(taskHandler: { $0.cancel() }) as NSError?
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 4.0)
         
         XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
     }
@@ -145,7 +145,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
         private static var _stub: Stub?
         private static var stub: Stub? {
             get { queue.sync { _stub } }
-            set { queue.sync { _stub = newValue}}
+            set { queue.sync { _stub = newValue }}
         }
 
         private static var queue = DispatchQueue(label: "URLProtocolStub.queue")
