@@ -14,15 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    let imageStoreURL = NSPersistentContainer
-        .defaultDirectoryURL()
-        .appending(component: "feed-store.sqlite")
-
     private lazy var httpClient: HTTPClient = {
         return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }()
     private lazy var store: FeedStore & FeedImageDataStore = {
-        try! CoreDataFeedStore(storeURL: imageStoreURL)
+        try! CoreDataFeedStore(storeURL: NSPersistentContainer
+            .defaultDirectoryURL()
+            .appending(component: "feed-store.sqlite"))
     }()
 
     convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
@@ -33,9 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
 
         configureWindow()
@@ -64,10 +59,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             cache: localImageLoader))
                 )
             )
-    }
-
-    func makeRemoteClient() -> HTTPClient {
-        return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }
 
 }
