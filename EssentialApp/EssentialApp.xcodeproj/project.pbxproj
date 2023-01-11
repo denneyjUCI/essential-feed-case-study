@@ -29,6 +29,7 @@
 		EA8461F7296E404F0050B131 /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F6296E404F0050B131 /* FeedLoaderCacheDecorator.swift */; };
 		EA8461F9296E42990050B131 /* FeedImageDataLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F8296E42980050B131 /* FeedImageDataLoaderCacheDecoratorTests.swift */; };
 		EA8461FB296E44E90050B131 /* XCTestCace+FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461FA296E44E90050B131 /* XCTestCace+FeedImageDataLoader.swift */; };
+		EA8461FD296E45640050B131 /* FeedImageDataLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461FC296E45640050B131 /* FeedImageDataLoaderStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		EA8461F6296E404F0050B131 /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		EA8461F8296E42980050B131 /* FeedImageDataLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		EA8461FA296E44E90050B131 /* XCTestCace+FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCace+FeedImageDataLoader.swift"; sourceTree = "<group>"; };
+		EA8461FC296E45640050B131 /* FeedImageDataLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				EA8461EC296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift */,
 				EA8461EE296E3A8D0050B131 /* SharedTestHelpers.swift */,
 				EA8461F0296E3AAB0050B131 /* FeedLoaderStub.swift */,
+				EA8461FC296E45640050B131 /* FeedImageDataLoaderStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				EA8461E2296CB5C30050B131 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				EA8461F9296E42990050B131 /* FeedImageDataLoaderCacheDecoratorTests.swift in Sources */,
+				EA8461FD296E45640050B131 /* FeedImageDataLoaderStub.swift in Sources */,
 				EA8461F3296E3B580050B131 /* XCTestCase+FeedLoader.swift in Sources */,
 				EA8461FB296E44E90050B131 /* XCTestCace+FeedImageDataLoader.swift in Sources */,
 				EA8461ED296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift in Sources */,

@@ -36,26 +36,10 @@ class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoaderTes
 
     // MARK: - Helpers
     func makeSUT(result: FeedImageDataLoader.Result, file: StaticString = #filePath, line: UInt = #line) -> FeedImageDataLoader {
-        let loader = LoaderStub(result: result)
+        let loader = FeedImageDataLoaderStub(result: result)
         let sut = FeedImageDataLoaderCacheDecorator(decoratee: loader)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-
-    private class LoaderStub: FeedImageDataLoader {
-        private struct Task: FeedImageDataLoaderTask {
-            func cancel() {}
-        }
-        private let result: FeedImageDataLoader.Result
-        init(result: FeedImageDataLoader.Result) {
-            self.result = result
-        }
-
-        func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-            completion(result)
-            return Task()
-        }
-    }
-
 }
