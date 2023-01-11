@@ -26,6 +26,7 @@
 		EA8461EF296E3A8D0050B131 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461EE296E3A8D0050B131 /* SharedTestHelpers.swift */; };
 		EA8461F1296E3AAB0050B131 /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F0296E3AAB0050B131 /* FeedLoaderStub.swift */; };
 		EA8461F3296E3B580050B131 /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F2296E3B580050B131 /* XCTestCase+FeedLoader.swift */; };
+		EA8461F7296E404F0050B131 /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F6296E404F0050B131 /* FeedLoaderCacheDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		EA8461EE296E3A8D0050B131 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		EA8461F0296E3AAB0050B131 /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
 		EA8461F2296E3B580050B131 /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
+		EA8461F6296E404F0050B131 /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				EA8461DF296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift */,
 				EA8461E3296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift */,
+				EA8461F6296E404F0050B131 /* FeedLoaderCacheDecorator.swift */,
 				EA8461B4296CA8C40050B131 /* AppDelegate.swift */,
 				EA8461B6296CA8C40050B131 /* SceneDelegate.swift */,
 				EA8461B8296CA8C40050B131 /* ViewController.swift */,
@@ -268,6 +271,7 @@
 				EA8461B9296CA8C40050B131 /* ViewController.swift in Sources */,
 				EA8461B5296CA8C40050B131 /* AppDelegate.swift in Sources */,
 				EA8461E0296CB5730050B131 /* FeedLoaderWithFallbackComposite.swift in Sources */,
+				EA8461F7296E404F0050B131 /* FeedLoaderCacheDecorator.swift in Sources */,
 				EA8461B7296CA8C40050B131 /* SceneDelegate.swift in Sources */,
 				EA8461E4296CB93F0050B131 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
