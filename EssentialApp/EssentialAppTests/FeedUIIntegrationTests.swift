@@ -1,4 +1,5 @@
 import XCTest
+import EssentialApp
 import EssentialFeed
 import EssentialFeediOS
 
