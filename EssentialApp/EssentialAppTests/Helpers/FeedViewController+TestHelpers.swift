@@ -21,6 +21,10 @@ extension FeedViewController {
         return refreshControl?.isRefreshing == true
     }
 
+    func renderedFeedImageData(at index: Int) -> Data? {
+        return simulateFeedImageViewVisible(at: index)?.renderedImage
+    }
+
     func numberOfRenderedFeedImageViews() -> Int {
         tableView.numberOfRows(inSection: feedImagesSection)
     }

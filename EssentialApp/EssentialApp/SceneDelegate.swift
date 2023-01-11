@@ -18,6 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .defaultDirectoryURL()
         .appending(component: "feed-store.sqlite")
 
+    private lazy var httpClient: HTTPClient = {
+        return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+    }()
+    private lazy var store: FeedStore & FeedImageDataStore = {
+        try! CoreDataFeedStore(storeURL: imageStoreURL)
+    }()
+
+    convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
+        self.init()
+        self.httpClient = httpClient
+        self.store = store
+    }
+
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -30,13 +43,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func configureWindow() {
         let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
-        let client = makeRemoteClient()
-        let remoteFeedLoader = RemoteFeedLoader(url: url, client: client)
-        let remoteImageLoader = RemoteFeedImageDataLoader(client: client)
+        let remoteFeedLoader = RemoteFeedLoader(url: url, client: httpClient)
+        let remoteImageLoader = RemoteFeedImageDataLoader(client: httpClient)
 
-        let localStore = try! CoreDataFeedStore(storeURL: imageStoreURL)
-        let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
-        let localImageLoader = LocalFeedImageDataLoader(store: localStore)
+        let localFeedLoader = LocalFeedLoader(store: store, currentDate: Date.init)
+        let localImageLoader = LocalFeedImageDataLoader(store: store)
 
         window?.rootViewController = UINavigationController(
             rootViewController:
