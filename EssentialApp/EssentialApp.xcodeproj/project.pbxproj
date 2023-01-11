@@ -33,6 +33,7 @@
 		EA846201296E47A90050B131 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA846200296E47A90050B131 /* FeedImageDataLoaderCacheDecorator.swift */; };
 		EA846209296F15760050B131 /* EssentialAppUIAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA846208296F15760050B131 /* EssentialAppUIAcceptanceTests.swift */; };
 		EA846212296F1BE90050B131 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA846211296F1BE90050B131 /* DebuggingSceneDelegate.swift */; };
+		EA846214296F2AEE0050B131 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA846213296F2AEE0050B131 /* SceneDelegateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		EA846206296F15760050B131 /* EssentialAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA846208296F15760050B131 /* EssentialAppUIAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppUIAcceptanceTests.swift; sourceTree = "<group>"; };
 		EA846211296F1BE90050B131 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
+		EA846213296F2AEE0050B131 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EA8461EB296E3A500050B131 /* Helpers */,
+				EA846213296F2AEE0050B131 /* SceneDelegateTests.swift */,
 				EA8461DD296CAF110050B131 /* FeedLoaderWithFallbackCompositeTests.swift */,
 				EA8461E1296CB5C30050B131 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 				EA8461E5296CDE580050B131 /* FeedLoaderCacheDecoratorTests.swift */,
@@ -359,6 +362,7 @@
 				EA8461F9296E42990050B131 /* FeedImageDataLoaderCacheDecoratorTests.swift in Sources */,
 				EA8461FD296E45640050B131 /* FeedImageDataLoaderStub.swift in Sources */,
 				EA8461F3296E3B580050B131 /* XCTestCase+FeedLoader.swift in Sources */,
+				EA846214296F2AEE0050B131 /* SceneDelegateTests.swift in Sources */,
 				EA8461FB296E44E90050B131 /* XCTestCace+FeedImageDataLoader.swift in Sources */,
 				EA8461ED296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				EA8461EF296E3A8D0050B131 /* SharedTestHelpers.swift in Sources */,
