@@ -25,6 +25,7 @@
 		EA8461ED296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461EC296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift */; };
 		EA8461EF296E3A8D0050B131 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461EE296E3A8D0050B131 /* SharedTestHelpers.swift */; };
 		EA8461F1296E3AAB0050B131 /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F0296E3AAB0050B131 /* FeedLoaderStub.swift */; };
+		EA8461F3296E3B580050B131 /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461F2296E3B580050B131 /* XCTestCase+FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		EA8461EC296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		EA8461EE296E3A8D0050B131 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		EA8461F0296E3AAB0050B131 /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
+		EA8461F2296E3B580050B131 /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		EA8461EB296E3A500050B131 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EA8461F2296E3B580050B131 /* XCTestCase+FeedLoader.swift */,
 				EA8461EC296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift */,
 				EA8461EE296E3A8D0050B131 /* SharedTestHelpers.swift */,
 				EA8461F0296E3AAB0050B131 /* FeedLoaderStub.swift */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA8461E2296CB5C30050B131 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
+				EA8461F3296E3B580050B131 /* XCTestCase+FeedLoader.swift in Sources */,
 				EA8461ED296E3A650050B131 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				EA8461EF296E3A8D0050B131 /* SharedTestHelpers.swift in Sources */,
 				EA8461DE296CAF110050B131 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
