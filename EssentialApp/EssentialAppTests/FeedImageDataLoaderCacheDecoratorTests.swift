@@ -29,6 +29,13 @@ class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
         expect(sut, toCompleteWith: .success(result))
     }
 
+    func test_loadImageData_failsOnLoaderFailure() {
+        let loaderStub = LoaderStub(result: .failure(anyNSError()))
+        let sut = FeedImageDataLoaderCacheDecorator(decoratee: loaderStub)
+
+        expect(sut, toCompleteWith: .failure(anyNSError()))
+    }
+
     private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for image load completion")
         _ = sut.loadImageData(from: anyURL()) { receivedResult in
