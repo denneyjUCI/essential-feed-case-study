@@ -115,7 +115,6 @@
 		EA8461FA296E44E90050B131 /* XCTestCace+FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCace+FeedImageDataLoader.swift"; sourceTree = "<group>"; };
 		EA8461FC296E45640050B131 /* FeedImageDataLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderStub.swift; sourceTree = "<group>"; };
 		EA846200296E47A90050B131 /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
-		EA846208296F15760050B131 /* EssentialAppUIAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppUIAcceptanceTests.swift; sourceTree = "<group>"; };
 		EA846213296F2AEE0050B131 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +143,6 @@
 			children = (
 				EA8461B3296CA8C40050B131 /* EssentialApp */,
 				EA8461D5296CAE990050B131 /* EssentialAppTests */,
-				EA846207296F15760050B131 /* EssentialAppUIAcceptanceTests */,
 				EA8461B2296CA8C40050B131 /* Products */,
 				EA8461C8296CAA200050B131 /* Frameworks */,
 			);
@@ -225,14 +223,6 @@
 				EA8461FC296E45640050B131 /* FeedImageDataLoaderStub.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		EA846207296F15760050B131 /* EssentialAppUIAcceptanceTests */ = {
-			isa = PBXGroup;
-			children = (
-				EA846208296F15760050B131 /* EssentialAppUIAcceptanceTests.swift */,
-			);
-			path = EssentialAppUIAcceptanceTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
