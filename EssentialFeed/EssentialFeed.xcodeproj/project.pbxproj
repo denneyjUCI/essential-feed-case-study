@@ -24,6 +24,8 @@
 		EA17E9582967988B00799F6E /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA17E93929676EAA00799F6E /* FeedLocalizationTests.swift */; };
 		EA2619BE296F601500181690 /* FeedSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619BD296F601500181690 /* FeedSnapshotTests.swift */; };
 		EA2619C4296F61E100181690 /* EMPTY_FEED.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2619C3296F61E100181690 /* EMPTY_FEED.png */; };
+		EA2619C7296F631C00181690 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619C6296F631B00181690 /* UIImage+Color.swift */; };
+		EA2619C9296F63BA00181690 /* FEED_WITH_CONTENT.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2619C8296F63BA00181690 /* FEED_WITH_CONTENT.png */; };
 		EA51FA36295E385400433CB6 /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51FA35295E385400433CB6 /* LoadFeedFromCacheUseCaseTests.swift */; };
 		EA51FA39295E38DC00433CB6 /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51FA38295E38DC00433CB6 /* FeedStoreSpy.swift */; };
 		EA51FA3B295E457800433CB6 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51FA3A295E457800433CB6 /* ValidateFeedCacheUseCaseTests.swift */; };
@@ -145,6 +147,8 @@
 		EA17E9562967976A00799F6E /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
 		EA2619BD296F601500181690 /* FeedSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSnapshotTests.swift; sourceTree = "<group>"; };
 		EA2619C3296F61E100181690 /* EMPTY_FEED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EMPTY_FEED.png; sourceTree = "<group>"; };
+		EA2619C6296F631B00181690 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		EA2619C8296F63BA00181690 /* FEED_WITH_CONTENT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FEED_WITH_CONTENT.png; sourceTree = "<group>"; };
 		EA51FA35295E385400433CB6 /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		EA51FA38295E38DC00433CB6 /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
 		EA51FA3A295E457800433CB6 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
@@ -304,8 +308,17 @@
 			isa = PBXGroup;
 			children = (
 				EA2619C3296F61E100181690 /* EMPTY_FEED.png */,
+				EA2619C8296F63BA00181690 /* FEED_WITH_CONTENT.png */,
 			);
 			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EA2619C5296F630400181690 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EA2619C6296F631B00181690 /* UIImage+Color.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EA51FA37295E38CF00433CB6 /* Helpers */ = {
@@ -363,6 +376,7 @@
 		EA51FAF42965045400433CB6 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				EA2619C5296F630400181690 /* Helpers */,
 				EA2619C2296F61E100181690 /* snapshots */,
 				EA2619BD296F601500181690 /* FeedSnapshotTests.swift */,
 			);
@@ -757,6 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA2619C4296F61E100181690 /* EMPTY_FEED.png in Resources */,
+				EA2619C9296F63BA00181690 /* FEED_WITH_CONTENT.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +832,7 @@
 			files = (
 				EA51FB002965E24400433CB6 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				EA2619BE296F601500181690 /* FeedSnapshotTests.swift in Sources */,
+				EA2619C7296F631C00181690 /* UIImage+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
