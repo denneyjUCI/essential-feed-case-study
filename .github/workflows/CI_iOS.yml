@@ -24,9 +24,17 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode_14.0.app
     
     - name: Build and Test
-      run: xcodebuild test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14,OS=16.0" ONLY_ACTIVE_ARCH=YES -resultBundlePath TestResults.xcresult -only-testing:EssentialFeediOSTests/FeedSnapshotTests
+      run: xcodebuild test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14,OS=16.0" ONLY_ACTIVE_ARCH=YES -resultBundlePath TestResults.xcresult -only-testing:EssentialFeediOSTests/FeedSnapshotTests | xcpretty
 
-    - uses: kishikawakatsumi/xcresulttool@v1
+    - name: Install xcparse
+      run: brew install chargepoint/xcparse/xcparse
+
+    - name: Run xcparse
+      run: xcparse screenshots TestResults.xcresult snapshots
+
+    # Upload files for tests job
+    - name: Upload snapshots
+      uses: actions/upload-artifact@v2
       with:
-        path: TestResults.xcresult
-      if: success() || failure()
+        name: snapshots
+        path: snapshots
