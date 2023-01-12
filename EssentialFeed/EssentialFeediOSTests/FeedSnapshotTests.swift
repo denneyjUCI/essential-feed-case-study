@@ -113,7 +113,20 @@ final class FeedSnapshotTests: XCTestCase {
 
             try? snapshotData?.write(to: temporarySnapshotURL)
 
-            XCTFail("New snapshot data does not match stored snapshot. New snapshot URL: \(temporarySnapshotURL), stored snapshot URL: \(snapshotURL)", file: file, line: line)
+            let errorMessage = "New snapshot data does not match stored snapshot. New snapshot URL: \(temporarySnapshotURL), stored snapshot URL: \(snapshotURL)"
+
+            var issue = XCTIssue(type: .assertionFailure, compactDescription: errorMessage)
+            let receivedAttachment = XCTAttachment(contentsOfFile: temporarySnapshotURL)
+            receivedAttachment.name = "RECEIVED RESULT"
+
+            let expectedAttachment = XCTAttachment(contentsOfFile: snapshotURL)
+            expectedAttachment.name = "EXPECTED RESULT"
+
+            issue.add(receivedAttachment)
+            issue.add(expectedAttachment)
+            self.record(issue)
+
+            XCTFail(errorMessage, file: file, line: line)
         }
     }
 
