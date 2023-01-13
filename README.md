@@ -4,6 +4,8 @@
 
 ![Mac](https://github.com/denneyjUCI/essential-feed-case-study/actions/workflows/CI_macOS.yml/badge.svg)
 
+![Deploy](https://github.com/denneyjUCI/essential-feed-case-study/actions/workflows/Deploy.yml/badge.svg)
+
 ## BDD Specs
 
 ### Story: Customer requests to see their image feed
