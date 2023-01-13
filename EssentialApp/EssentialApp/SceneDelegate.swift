@@ -62,11 +62,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func makeRemoteFeedLoaderWithLocalFallback() -> FeedLoader.Publisher {
         let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
 
-        let remoteLoader = RemoteLoader(url: url, client: httpClient, mapper: FeedItemsMapper.map)
-        self.remoteLoader = remoteLoader
-
-        return remoteLoader
-            .loadPublisher()
+        return httpClient
+            .getPublisher(url: url)
+            .tryMap(FeedItemsMapper.map)
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
     }
