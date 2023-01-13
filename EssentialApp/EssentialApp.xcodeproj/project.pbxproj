@@ -511,7 +511,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6769452Z58;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6769452Z58;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = EssentialApp/Info.plist;
