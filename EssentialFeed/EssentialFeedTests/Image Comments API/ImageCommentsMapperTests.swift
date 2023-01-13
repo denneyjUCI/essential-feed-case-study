@@ -33,7 +33,7 @@ final class ImageCommentsMapperTests: XCTestCase {
         }
     }
 
-    func test_load_deliversItemsOn2xxResponseAndValidJSONList() throws {
+    func test_map_deliversItemsOn2xxResponseAndValidJSONList() throws {
         let item1 = makeItem(id: UUID(),
                              message: "a message",
                              createdAt: (Date(timeIntervalSince1970: 1598627222), "2020-08-28T15:07:02+00:00"),
