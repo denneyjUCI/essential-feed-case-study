@@ -24,8 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .appending(component: "feed-store.sqlite"))
     }()
 
-    var remoteLoader: RemoteLoader<[FeedImage]>?
-
     private lazy var localFeedLoader: LocalFeedLoader = {
         LocalFeedLoader(store: store, currentDate: Date.init)
     }()
@@ -83,5 +81,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 }
-
-extension RemoteLoader: FeedLoader where Resource == [FeedImage] {}
