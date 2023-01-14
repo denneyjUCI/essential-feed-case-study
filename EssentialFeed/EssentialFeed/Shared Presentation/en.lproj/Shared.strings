@@ -1,7 +1,1 @@
-/* 
-  Shared.strings
-  EssentialFeed
-
-  Created by Jonathan Denney on 1/13/23.
-  
-*/
+"GENERIC_CONNECTION_ERROR" = "Couldn't connect to server";
