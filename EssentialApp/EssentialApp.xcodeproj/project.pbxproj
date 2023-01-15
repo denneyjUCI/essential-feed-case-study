@@ -18,7 +18,7 @@
 		EA2619A5296F2D1500181690 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619A2296F2D1500181690 /* WeakRefVirtualProxy.swift */; };
 		EA2619A6296F2D1500181690 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619A0296F2D1500181690 /* FeedImageDataLoaderPresentationAdapter.swift */; };
 		EA2619A7296F2D1500181690 /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619A4296F2D1500181690 /* FeedViewAdapter.swift */; };
-		EA2619A8296F2D1500181690 /* FeedLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA26199F296F2D1500181690 /* FeedLoaderPresentationAdapter.swift */; };
+		EA2619A8296F2D1500181690 /* LoadResourcePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA26199F296F2D1500181690 /* LoadResourcePresentationAdapter.swift */; };
 		EA2619A9296F2D1500181690 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619A3296F2D1500181690 /* FeedUIComposer.swift */; };
 		EA2619AC296F2E5000181690 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619AB296F2E5000181690 /* FeedAcceptanceTests.swift */; };
 		EA2619BA296F581700181690 /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619B9296F581700181690 /* HTTPClientStub.swift */; };
@@ -76,7 +76,7 @@
 		EA261994296F2D0700181690 /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		EA261995296F2D0700181690 /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		EA26199D296F2D0C00181690 /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
-		EA26199F296F2D1500181690 /* FeedLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		EA26199F296F2D1500181690 /* LoadResourcePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResourcePresentationAdapter.swift; sourceTree = "<group>"; };
 		EA2619A0296F2D1500181690 /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		EA2619A2296F2D1500181690 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		EA2619A3296F2D1500181690 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				EA2619A3296F2D1500181690 /* FeedUIComposer.swift */,
 				EA2619A2296F2D1500181690 /* WeakRefVirtualProxy.swift */,
 				EA2619A4296F2D1500181690 /* FeedViewAdapter.swift */,
-				EA26199F296F2D1500181690 /* FeedLoaderPresentationAdapter.swift */,
+				EA26199F296F2D1500181690 /* LoadResourcePresentationAdapter.swift */,
 				EA2619A0296F2D1500181690 /* FeedImageDataLoaderPresentationAdapter.swift */,
 				EA8461B4296CA8C40050B131 /* AppDelegate.swift */,
 				EA8461B6296CA8C40050B131 /* SceneDelegate.swift */,
@@ -309,7 +309,7 @@
 				EA8461B5296CA8C40050B131 /* AppDelegate.swift in Sources */,
 				EA2619EC2971BAB600181690 /* CombineHelpers.swift in Sources */,
 				EA2619A6296F2D1500181690 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
-				EA2619A8296F2D1500181690 /* FeedLoaderPresentationAdapter.swift in Sources */,
+				EA2619A8296F2D1500181690 /* LoadResourcePresentationAdapter.swift in Sources */,
 				EA2619A9296F2D1500181690 /* FeedUIComposer.swift in Sources */,
 				EA8461B7296CA8C40050B131 /* SceneDelegate.swift in Sources */,
 				EA2619A5296F2D1500181690 /* WeakRefVirtualProxy.swift in Sources */,
