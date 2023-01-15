@@ -22,6 +22,14 @@ public final class FeedImagePresenter<View: FeedImageView, Image> where View.Ima
         self.imageTransformer = imageTransformer
     }
 
+    public static func map(_ image: FeedImage) -> FeedImageViewModel<Image> {
+        FeedImageViewModel(description: image.description,
+                           location: image.location,
+                           isLoading: false,
+                           shouldRetry: false,
+                           image: nil)
+    }
+
     public func didStartLoadingImageData(for model: FeedImage) {
         view.display(FeedImageViewModel(
             description: model.description,
