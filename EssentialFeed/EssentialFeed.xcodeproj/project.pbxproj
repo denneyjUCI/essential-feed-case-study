@@ -495,6 +495,22 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EA261A312978828800181690 /* FeedUI */ = {
+			isa = PBXGroup;
+			children = (
+				EA2619C2296F61E100181690 /* snapshots */,
+				EA2619BD296F601500181690 /* FeedSnapshotTests.swift */,
+			);
+			path = FeedUI;
+			sourceTree = "<group>";
+		};
+		EA261A322978829500181690 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
 		EA51FA37295E38CF00433CB6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,8 +568,8 @@
 			isa = PBXGroup;
 			children = (
 				EA2619C5296F630400181690 /* Helpers */,
-				EA2619C2296F61E100181690 /* snapshots */,
-				EA2619BD296F601500181690 /* FeedSnapshotTests.swift */,
+				EA261A322978829500181690 /* Shared UI */,
+				EA261A312978828800181690 /* FeedUI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";

@@ -161,17 +161,13 @@ private extension ListViewController {
 
 private class ImageStub: FeedImageCellControllerDelegate {
     weak var controller: FeedImageCellController?
-    let viewModel: FeedImageViewModel<UIImage>
+    let viewModel: FeedImageViewModel
     let image: UIImage?
 
     init(description: String?, location: String?, image: UIImage?) {
         self.viewModel = FeedImageViewModel(
             description: description,
-            location: location,
-            isLoading: false,
-            shouldRetry: image == nil,
-            image: image
-            )
+            location: location)
         self.image = image
     }
 
