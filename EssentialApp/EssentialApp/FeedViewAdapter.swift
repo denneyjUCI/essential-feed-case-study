@@ -38,9 +38,9 @@ final class FeedViewAdapter: ResourceView {
                     return image
                 })
 
-            return view
+            return CellController(view)
         })
     }
 }
 
-                            private struct InvalidImageData: Error {}
+private struct InvalidImageData: Error {}
