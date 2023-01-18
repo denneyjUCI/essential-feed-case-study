@@ -33,10 +33,6 @@ final class FeedSnapshotTests: XCTestCase {
         return controller
     }
 
-    private func emptyFeed() -> [FeedImageCellController] {
-        return []
-    }
-
     private func feedWithContent() -> [ImageStub] {
         return [
             ImageStub(
