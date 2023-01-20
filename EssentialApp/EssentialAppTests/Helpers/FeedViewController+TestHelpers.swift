@@ -14,7 +14,7 @@ extension ListViewController {
         super.loadViewIfNeeded()
         tableView.frame = .init(origin: .zero, size: .init(width: 1, height: 1))
     }
-    func simulateUserInitiatedFeedReload() {
+    func simulateUserInitiatedReload() {
         refreshControl?.simulatePullToRefresh()
     }
 
