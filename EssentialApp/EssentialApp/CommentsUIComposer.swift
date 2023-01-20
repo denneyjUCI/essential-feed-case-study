@@ -18,14 +18,12 @@ public final class CommentsUIComposer {
     public static func commentsComposedWith(
         commentsLoader: @escaping () -> AnyPublisher<[ImageComment], Error>
     ) -> ListViewController {
-        let presentationAdapter = CommentsPresentationAdapter(
-            loader: commentsLoader
-        )
+        let commentsAdapter = CommentsPresentationAdapter(loader: commentsLoader)
 
         let commentsController = makeCommentsViewController(title: ImageCommentsPresenter.title)
-        commentsController.onRefresh = presentationAdapter.loadResource
+        commentsController.onRefresh = commentsAdapter.loadResource
 
-        presentationAdapter.presenter = LoadResourcePresenter(
+        commentsAdapter.presenter = LoadResourcePresenter(
             resourceView: CommentsViewAdapter(controller: commentsController),
             loadingView: WeakRefVirtualProxy(commentsController),
             errorView: WeakRefVirtualProxy(commentsController),
