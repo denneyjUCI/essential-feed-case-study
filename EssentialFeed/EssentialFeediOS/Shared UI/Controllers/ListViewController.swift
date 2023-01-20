@@ -23,6 +23,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         configureErrorView()
         refresh()
@@ -63,7 +64,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public func display(_ cellControllers: [CellController]) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
         snapshot.appendSections([0])
-        snapshot.appendItems(cellControllers)
+        snapshot.appendItems(cellControllers, toSection: 0)
 
         if #available(iOS 15.0, *) {
             dataSource.applySnapshotUsingReloadData(snapshot)

@@ -26,6 +26,7 @@
 		EA2619EC2971BAB600181690 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2619EB2971BAB600181690 /* CombineHelpers.swift */; };
 		EA261A58297B100700181690 /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA261A57297B100700181690 /* CommentsUIIntegrationTests.swift */; };
 		EA261A5A297B115100181690 /* CommentsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA261A59297B115100181690 /* CommentsUIComposer.swift */; };
+		EA261A5C297B238400181690 /* CommentsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA261A5B297B238400181690 /* CommentsViewAdapter.swift */; };
 		EA8461B5296CA8C40050B131 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461B4296CA8C40050B131 /* AppDelegate.swift */; };
 		EA8461B7296CA8C40050B131 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8461B6296CA8C40050B131 /* SceneDelegate.swift */; };
 		EA8461BE296CA8C50050B131 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8461BD296CA8C50050B131 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		EA2619EB2971BAB600181690 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		EA261A57297B100700181690 /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
 		EA261A59297B115100181690 /* CommentsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIComposer.swift; sourceTree = "<group>"; };
+		EA261A5B297B238400181690 /* CommentsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewAdapter.swift; sourceTree = "<group>"; };
 		EA8461B1296CA8C40050B131 /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8461B4296CA8C40050B131 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA8461B6296CA8C40050B131 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				EA261A59297B115100181690 /* CommentsUIComposer.swift */,
 				EA2619A2296F2D1500181690 /* WeakRefVirtualProxy.swift */,
 				EA2619A4296F2D1500181690 /* FeedViewAdapter.swift */,
+				EA261A5B297B238400181690 /* CommentsViewAdapter.swift */,
 				EA26199F296F2D1500181690 /* LoadResourcePresentationAdapter.swift */,
 				EA8461B4296CA8C40050B131 /* AppDelegate.swift */,
 				EA8461B6296CA8C40050B131 /* SceneDelegate.swift */,
@@ -312,6 +315,7 @@
 				EA8461B5296CA8C40050B131 /* AppDelegate.swift in Sources */,
 				EA2619EC2971BAB600181690 /* CombineHelpers.swift in Sources */,
 				EA2619A8296F2D1500181690 /* LoadResourcePresentationAdapter.swift in Sources */,
+				EA261A5C297B238400181690 /* CommentsViewAdapter.swift in Sources */,
 				EA2619A9296F2D1500181690 /* FeedUIComposer.swift in Sources */,
 				EA8461B7296CA8C40050B131 /* SceneDelegate.swift in Sources */,
 				EA2619A5296F2D1500181690 /* WeakRefVirtualProxy.swift in Sources */,
