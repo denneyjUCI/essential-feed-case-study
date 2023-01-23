@@ -178,8 +178,8 @@
 			children = (
 				EA8461EB296E3A500050B131 /* Helpers */,
 				EA846213296F2AEE0050B131 /* SceneDelegateTests.swift */,
-				EA26199D296F2D0C00181690 /* FeedUIIntegrationTests.swift */,
 				EA2619AB296F2E5000181690 /* FeedAcceptanceTests.swift */,
+				EA26199D296F2D0C00181690 /* FeedUIIntegrationTests.swift */,
 				EA261A57297B100700181690 /* CommentsUIIntegrationTests.swift */,
 			);
 			path = EssentialAppTests;
