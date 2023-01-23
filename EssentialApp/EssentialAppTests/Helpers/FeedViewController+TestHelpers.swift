@@ -100,6 +100,14 @@ extension ListViewController {
         delegate?.tableView?(tableView, didSelectRowAt:index)
     }
 
+    func simulateLoadMoreFeedAction() {
+        guard let cell = cell(row: 0, section: loadMoreSection) else { return }
+
+        let delegate = tableView.delegate
+        let index = IndexPath(row: 0, section: loadMoreSection)
+        delegate?.tableView?(tableView, willDisplay: cell, forRowAt: index)
+    }
+
     @discardableResult
     func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
         return feedImageView(at: index) as? FeedImageCell
