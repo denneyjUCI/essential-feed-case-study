@@ -16,6 +16,7 @@ final class FeedEndpointTests: XCTestCase {
 
         XCTAssertEqual(received.scheme, "http", "scheme")
         XCTAssertEqual(received.host, "base-url.com", "host")
-        XCTAssertEqual(received.path, "/v1/feed", "path for feed")
+        XCTAssertEqual(received.path, "/v1/feed", "path")
+        XCTAssertEqual(received.query, "limit=10", "query")
     }
 }
