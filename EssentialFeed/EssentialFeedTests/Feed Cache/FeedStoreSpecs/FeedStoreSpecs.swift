@@ -21,8 +21,6 @@ protocol FeedStoreSpecs {
     func test_delete_deliversNoErrorOnNonEmptyCache()
     func test_delete_hasNoSideEffectsOnEmptyCache()
     func test_delete_removesNonEmptyCache()
-
-    func test_storeSideEffects_runSerially()
 }
 
 protocol FailableRetrieveFeedStoreSpecs: FeedStoreSpecs {
@@ -38,6 +36,10 @@ protocol FailableInsertFeedStoreSpecs: FeedStoreSpecs {
 protocol FailableDeleteFeedStoreSpecs: FeedStoreSpecs {
     func test_delete_hasNoSideEffectsOnFailure()
     func test_delete_deliversErrorOnDeletionError()
+}
+
+protocol AsyncFeedStore: FeedStoreSpecs {
+    func test_storeSideEffects_runSerially()
 }
 
 typealias FailableFeedStore = FailableRetrieveFeedStoreSpecs & FailableInsertFeedStoreSpecs & FailableDeleteFeedStoreSpecs
