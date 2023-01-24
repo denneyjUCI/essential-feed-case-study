@@ -99,6 +99,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return makeRemoteFeedLoader()
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
+            .subscribe(on: scheduler)
             .map(makeFirstPage)
             .eraseToAnyPublisher()
     }
