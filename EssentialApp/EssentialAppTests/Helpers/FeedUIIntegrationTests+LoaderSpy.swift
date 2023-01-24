@@ -38,6 +38,7 @@ extension FeedUIIntegrationTests {
                 self?.loadMoreRequests.append(publisher)
                 return publisher.eraseToAnyPublisher()
             }))
+            feedRequests[index].send(completion: .finished)
         }
 
         func completeFeedLoadingWithError(at index: Int = 0) {
@@ -53,6 +54,7 @@ extension FeedUIIntegrationTests {
                 self?.loadMoreRequests.append(publisher)
                 return publisher.eraseToAnyPublisher()
             }))
+            loadMoreRequests[index].send(completion: .finished)
         }
 
         func completeLoadMoreWithError(at index: Int = 0) {

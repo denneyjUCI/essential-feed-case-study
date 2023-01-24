@@ -8,14 +8,15 @@
 import Foundation
 import EssentialFeed
 
-class InMemoryFeedStore: FeedStore, FeedImageDataStore {
+class InMemoryFeedStore {
     private(set) var feedCache: CachedFeed?
     private var feedImageDataCache: [URL: Data] = [:]
 
     init(feedCache: CachedFeed? = nil) {
         self.feedCache = feedCache
     }
-
+}
+extension InMemoryFeedStore: FeedStore {
     func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         feedCache = nil
         completion(.success(()))
@@ -29,7 +30,9 @@ class InMemoryFeedStore: FeedStore, FeedImageDataStore {
     func retrieve(completion: @escaping RetrievalCompletion) {
         completion(.success(feedCache))
     }
+}
 
+extension InMemoryFeedStore: FeedImageDataStore {
     func insert(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
         feedImageDataCache[url] = data
         completion(.success(()))

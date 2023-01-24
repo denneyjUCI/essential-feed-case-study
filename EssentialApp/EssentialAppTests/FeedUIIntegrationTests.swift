@@ -38,9 +38,11 @@ class FeedUIIntegrationTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertEqual(loader.loadFeedCallCount, 1, "Expected a loading request after view is loaded")
 
+        loader.completeFeedLoading(at: 0)
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadFeedCallCount, 2, "Expected another loading request after user initiates a reload")
 
+        loader.completeFeedLoading(at: 1)
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadFeedCallCount, 3, "Expected yet another loading request after user initiates a reload")
     }
@@ -449,6 +451,32 @@ class FeedUIIntegrationTests: XCTestCase {
         }
 
         wait(for: [exp], timeout: 0.1)
+    }
+
+    func test_feedImageView_doesNotLoadImageAgainUntilPreviousRequestCompletes() {
+        let image = makeImage(url: URL(string: "http://url-0.com")!)
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [image])
+
+        sut.simulateFeedImageViewNearVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url], "Expected first request after near visible")
+
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url], "Expected no request until previous request completes")
+
+        loader.completeImageLoading(at: 0)
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url], "Expected second request when visible after previous completes")
+
+        sut.simulateFeedImageViewNotVisible(at: 0)
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url, image.url], "Expected third request when visible after previous request cancels")
+
+        sut.simulateLoadMoreFeedAction()
+        loader.completeLoadMore(with: [image, makeImage()])
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url, image.url], "Expected no request until previous request completes")
     }
 
     // MARK: - Helpers
