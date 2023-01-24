@@ -51,37 +51,6 @@ class LoadImageDataFromCacheUseCaseTests: XCTestCase {
         })
     }
 
-    func test_loadImageDataFromURL_doesNotDeliverResultAfterCancellingTask() {
-        let (sut, store) = makeSUT()
-        let foundData = anyData()
-
-        var received = [FeedImageDataLoader.Result]()
-        let task = sut.loadImageData(from: anyURL()) { received.append($0) }
-        task.cancel()
-
-        store.complete(with: foundData)
-        store.complete(with: .none)
-        store.complete(with: anyNSError())
-
-        XCTAssertTrue(received.isEmpty, "Expected no results after cancelling task")
-    }
-
-    func test_loadImageDataFromURL_doesNotDeliverResultAfterSUTInstanceDeallocation() {
-        let store = FeedImageDataStoreSpy()
-        var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
-        let foundData = anyData()
-
-        var received = [FeedImageDataLoader.Result]()
-        let _ = sut?.loadImageData(from: anyURL()) { received.append($0) }
-        sut = nil
-
-        store.complete(with: foundData)
-        store.complete(with: .none)
-        store.complete(with: anyNSError())
-
-        XCTAssertTrue(received.isEmpty, "Expected no results after deallocation of SUT")
-    }
-
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
         let store = FeedImageDataStoreSpy()
@@ -93,6 +62,8 @@ class LoadImageDataFromCacheUseCaseTests: XCTestCase {
 
     private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
+
+        action()
 
         _ = sut.loadImageData(from: anyURL()) { receivedResult in
             switch (receivedResult, expectedResult) {
@@ -106,7 +77,6 @@ class LoadImageDataFromCacheUseCaseTests: XCTestCase {
             exp.fulfill()
         }
 
-        action()
         wait(for: [exp], timeout: 1.0)
     }
 
