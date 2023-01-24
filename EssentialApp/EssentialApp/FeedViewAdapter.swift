@@ -26,7 +26,7 @@ final class FeedViewAdapter: ResourceView {
     }
 
     public func display(_ viewModel: Paginated<FeedImage>) {
-        let feed: [CellController] = viewModel.items.map {  model in
+        let feed: [CellController] = viewModel.items.map { model in
             let adapter = ImageDataPresentationAdapter(loader: { [imageLoader] in
                 imageLoader(model.url)
             })
