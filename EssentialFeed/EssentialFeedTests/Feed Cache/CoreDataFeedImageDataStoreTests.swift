@@ -41,24 +41,6 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         expect(sut, toCompleteRetrievalWith: found(last), for: url)
     }
 
-    func test_sideEffect_runSerially() {
-        let sut = makeSUT()
-        let url = anyURL()
-
-        let op1 = expectation(description: "Operation 1")
-        sut.insert([localImage(url: url)], timestamp: Date()) { _ in
-            op1.fulfill()
-        }
-
-        let op2 = expectation(description: "Operation 2")
-        sut.insert(anyData(), for: url, completion: { _ in op2.fulfill() })
-
-        let op3 = expectation(description: "Operation 3")
-        sut.insert(anyData(), for: url, completion: { _ in op3.fulfill() })
-
-        wait(for: [op1, op2, op3], timeout: 3.0, enforceOrder: true)
-    }
-
     // MARK: - Helpers
     func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CoreDataFeedStore {
         let storeURL = URL(fileURLWithPath: "/dev/null")
@@ -67,50 +49,40 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         return sut
     }
 
-    private func notFound() -> FeedImageDataStore.RetrievalResult {
+    private func notFound() -> Result<Data?, Error> {
         return .success(.none)
     }
 
-    private func found(_ data: Data) -> FeedImageDataStore.RetrievalResult {
+    private func found(_ data: Data) -> Result<Data?, Error> {
         return .success(data)
     }
 
-    private func expect(_ sut: CoreDataFeedStore, toCompleteRetrievalWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        sut.retrieve(dataForURL: url) { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success( receivedData), .success(expectedData)):
-                XCTAssertEqual(receivedData, expectedData, file: file, line: line)
+    private func expect(_ sut: CoreDataFeedStore, toCompleteRetrievalWith expectedResult: Result<Data?, Error>, for url: URL, file: StaticString = #file, line: UInt = #line) {
+        let receivedResult = Result { try sut.retrieve(dataForURL: url) }
 
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            exp.fulfill()
+        switch (receivedResult, expectedResult) {
+        case let (.success( receivedData), .success(expectedData)):
+            XCTAssertEqual(receivedData, expectedData, file: file, line: line)
+
+        default:
+            XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
         }
-        wait(for: [exp], timeout: 1.0)
     }
 
     private func insert(_ data: Data, for url: URL, into sut: CoreDataFeedStore, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for cache insertion")
         let image = localImage(url: url)
 
-        sut.insert([image], timestamp: Date()) { result in
-            switch result {
-            case let .failure(error):
-                XCTFail("Failed to save \(image) with error \(error)", file: file, line: line)
-                exp.fulfill()
-            case .success:
-                sut.insert(data, for: url) { result in
-                    if case let Result.failure(error) = result {
-                        XCTFail("Failed to insert \(data) with error \(error)", file: file, line: line)
-                    }
+        let result = Result { try sut.insert([image], timestamp: Date()) }
 
-                    exp.fulfill()
-                }
-            }
+        if case let .failure(error) = result {
+            XCTFail("Failed to save \(image) with error \(error)", file: file, line: line)
         }
 
-        wait(for: [exp], timeout: 1.0)
+        do {
+            try sut.insert(data, for: url)
+        } catch {
+            XCTFail("Failed to insert \(data) with error \(error)", file: file, line: line)
+        }
     }
 
     private func localImage(url: URL) -> LocalFeedImage {
