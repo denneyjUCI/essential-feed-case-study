@@ -58,7 +58,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
         store.completeRetrieval(with: feed.local, timestamp: expiredTimestamp)
-        try?sut.validateCache()
+        try? sut.validateCache()
 
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCachedFeed])
     }
