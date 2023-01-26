@@ -64,8 +64,12 @@ public extension LocalFeedLoader {
     }
 }
 
-extension Publisher where Output == [FeedImage] {
-    func fallback(to fallbackPublisher: @escaping () -> AnyPublisher<Output, Failure>) -> AnyPublisher<Output, Failure> {
+extension Publisher {
+    func fallback(to fallbackPublisher: @escaping () -> AnyPublisher<Output, Failure>) -> AnyPublisher<Output, Failure> where Output == [FeedImage] {
+        self.catch { _ in fallbackPublisher() }.eraseToAnyPublisher()
+    }
+
+    func fallback(to fallbackPublisher: @escaping () -> AnyPublisher<Output, Failure>) -> AnyPublisher<Output, Failure> where Output == Data {
         self.catch { _ in fallbackPublisher() }.eraseToAnyPublisher()
     }
 }
@@ -77,6 +81,16 @@ extension Publisher {
 
     func caching(to cache: FeedCache) -> AnyPublisher<Output, Failure> where Output == Paginated<FeedImage> {
         handleEvents(receiveOutput: cache.saveIgnoringResult).eraseToAnyPublisher()
+    }
+
+    func caching(to cache: FeedImageDataCache, with url: URL) -> AnyPublisher<Output, Failure> where Output == Data {
+        handleEvents(receiveOutput: { cache.saveIgnoringResult($0, for: url) }).eraseToAnyPublisher()
+    }
+}
+
+extension FeedImageDataCache {
+    func saveIgnoringResult(_ data: Data, for url: URL) {
+        try? save(data, for: url)
     }
 }
 
@@ -103,24 +117,6 @@ public extension FeedImageDataLoader {
             }
         }
         .eraseToAnyPublisher()
-    }
-}
-
-extension Publisher where Output == Data {
-    func fallback(to fallbackPublisher: @escaping () -> AnyPublisher<Output, Failure>) -> AnyPublisher<Output, Failure> {
-        self.catch { _ in fallbackPublisher() }.eraseToAnyPublisher()
-    }
-}
-
-extension Publisher where Output == Data {
-    func caching(to cache: FeedImageDataCache, with url: URL) -> AnyPublisher<Output, Failure> {
-        handleEvents(receiveOutput: { data in cache.saveIgnoringResult(data, for: url) }).eraseToAnyPublisher()
-    }
-}
-
-extension FeedImageDataCache {
-    func saveIgnoringResult(_ data: Data, for url: URL) {
-        try? save(data, for: url)
     }
 }
 
