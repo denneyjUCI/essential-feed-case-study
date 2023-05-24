@@ -28,7 +28,7 @@ jobs:
         cp .github/deployment/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
     - name: Install keychain certificate
       run: |
-        gpg --verbose --batch --yes --decrypt --passphrase="${{ secrets.SECRET_KEY }}" --output .github/deployment/certificate.p12 .github/deployment/certificate.p12.gpg
+        gpg --verbose --pinentry-mode loopback --batch --yes --decrypt --passphrase="${{ secrets.SECRET_KEY }}" --output .github/deployment/certificate.p12 .github/deployment/certificate.p12.gpg
         security create-keychain -p "" build.keychain
         security import .github/deployment/certificate.p12 -t agg -k ~/Library/Keychains/build.keychain -P "${{ secrets.CERTIFICATE_PASSWORD }}" -A
         security list-keychains -s ~/Library/Keychains/build.keychain
