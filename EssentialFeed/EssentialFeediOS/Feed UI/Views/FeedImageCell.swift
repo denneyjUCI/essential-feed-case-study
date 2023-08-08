@@ -16,8 +16,15 @@ public final class FeedImageCell: UITableViewCell {
     @IBOutlet private(set) public var imageRetryButton: UIButton!
 
     var onRetry: (() -> Void)?
+    var onReuse: (() -> Void)?
 
     @IBAction private func retryButtonTapped() {
         onRetry?()
+    }
+
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+
+        onReuse?()
     }
 }
