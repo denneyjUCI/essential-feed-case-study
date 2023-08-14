@@ -13,6 +13,13 @@ public class LoadMoreCellController: NSObject, UITableViewDataSource, UITableVie
     private let cell = LoadMoreCell()
     private let callback: () -> Void
     private var observation: NSKeyValueObservation?
+    private var lastOffset: CGPoint = .zero {
+        didSet {
+            if lastOffset.y > oldValue.y {
+                reloadIfNeeded()
+            }
+        }
+    }
 
     public init(callback: @escaping () -> Void) {
         self.callback = callback
@@ -30,10 +37,10 @@ public class LoadMoreCellController: NSObject, UITableViewDataSource, UITableVie
     public func tableView(_ tableView: UITableView, willDisplay: UITableViewCell, forRowAt indexPath: IndexPath) {
         reloadIfNeeded()
 
-        observation = tableView.observe(\.contentOffset, options: .new) { [weak self] (tableView, _) in
+        observation = tableView.observe(\.contentOffset, options: .new) { [weak self] (tableView, value) in
             guard tableView.isDragging else { return }
 
-            self?.reloadIfNeeded()
+            value.newValue.map { self?.lastOffset = $0 }
         }
     }
 
