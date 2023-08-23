@@ -72,13 +72,8 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
     private func insert(_ data: Data, for url: URL, into sut: CoreDataFeedStore, file: StaticString = #file, line: UInt = #line) {
         let image = localImage(url: url)
 
-        let result = Result { try sut.insert([image], timestamp: Date()) }
-
-        if case let .failure(error) = result {
-            XCTFail("Failed to save \(image) with error \(error)", file: file, line: line)
-        }
-
         do {
+            try sut.insert([image], timestamp: Date())
             try sut.insert(data, for: url)
         } catch {
             XCTFail("Failed to insert \(data) with error \(error)", file: file, line: line)
