@@ -16,7 +16,7 @@ final class LoadResourcePresenterTests: XCTestCase {
 
         XCTAssertEqual(view.messages, [
             .display(errorMessage: .none),
-            .display(isLoading: true)
+            .display(isLoading: true, message: nil)
         ])
     }
 
@@ -29,7 +29,7 @@ final class LoadResourcePresenterTests: XCTestCase {
 
         XCTAssertEqual(view.messages, [
             .display(resourceViewModel: "resource view model"),
-            .display(isLoading: false)
+            .display(isLoading: false, message: "Last updated now")
         ])
     }
 
@@ -40,20 +40,36 @@ final class LoadResourcePresenterTests: XCTestCase {
 
         XCTAssertEqual(view.messages, [
             .display(errorMessage: localized("GENERIC_CONNECTION_ERROR")),
-            .display(isLoading: false)
+            .display(isLoading: false, message: "Last updated now")
         ])
     }
 
     func test_didFinishLoadingWithMapperError_displaysLocalizedErrorAndStopsLoading() {
         let (sut, view) = makeSUT(mapper: { _ in
             throw anyNSError()
-        })
+        }, lastUpdated: { _ in return "5 mins ago"})
 
         sut.didFinishLoading(with: "resource")
 
         XCTAssertEqual(view.messages, [
             .display(errorMessage: localized("GENERIC_CONNECTION_ERROR")),
-            .display(isLoading: false)
+            .display(isLoading: false, message: "Last updated 5 mins ago")
+        ])
+    }
+
+    func test_didFinishLoadingWithMapperError_afterLoadingSuccess_displaysLastUpdatedTime() {
+        let (sut, view) = makeSUT(mapper: { resource in
+            resource + " view model"
+        }, lastUpdated: { _ in return "1s ago"})
+
+        sut.didFinishLoading(with: "resource")
+        sut.didFinishLoading(with: anyNSError())
+
+        XCTAssertEqual(view.messages, [
+            .display(resourceViewModel: "resource view model"),
+            .display(isLoading: false, message: "Last updated now"),
+            .display(errorMessage: localized("GENERIC_CONNECTION_ERROR")),
+            .display(isLoading: false, message: "Last updated 1s ago")
         ])
     }
 
@@ -63,11 +79,12 @@ final class LoadResourcePresenterTests: XCTestCase {
 
     private func makeSUT(
         mapper: @escaping SUT.Mapper = { _ in "any" },
+        lastUpdated: @escaping (Date) -> String = { _ in "now"},
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> (sut: SUT, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = SUT(resourceView: view, loadingView: view, errorView: view, mapper: mapper)
+        let sut = SUT(resourceView: view, loadingView: view, errorView: view, mapper: mapper, lastUpdated: lastUpdated)
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
@@ -91,7 +108,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         enum Message: Hashable {
             case display(resourceViewModel: String)
             case display(errorMessage: String?)
-            case display(isLoading: Bool)
+            case display(isLoading: Bool, message: String?)
             case display(feed: [FeedImage])
         }
 
@@ -106,7 +123,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         }
 
         func display(_ viewModel: ResourceLoadingViewModel) {
-            messages.insert(.display(isLoading: viewModel.isLoading))
+            messages.insert(.display(isLoading: viewModel.isLoading, message: viewModel.message))
         }
     }
     
