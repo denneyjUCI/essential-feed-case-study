@@ -56,7 +56,8 @@ final class FeedViewAdapter: ResourceView {
                         throw InvalidImageData()
                     }
                     return image
-                })
+                },
+                lastUpdated: { _ in "now"} )
 
             let controller = CellController(id: model, view)
             currentFeed[model] = controller
@@ -74,7 +75,8 @@ final class FeedViewAdapter: ResourceView {
         loadMoreAdapter.presenter = LoadResourcePresenter(
             resourceView: FeedViewAdapter(currentFeed: currentFeed, controller: controller, imageLoader: imageLoader, selection: selection),
             loadingView: WeakRefVirtualProxy(loadMore),
-            errorView: WeakRefVirtualProxy(loadMore))
+            errorView: WeakRefVirtualProxy(loadMore),
+            lastUpdated: { _ in "now"} )
 
         let loadMoreSection = [CellController(id: UUID(), loadMore)]
 

@@ -75,6 +75,9 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     }
 
     public func display(_ viewModel: ResourceLoadingViewModel) {
+        if let message = viewModel.message {
+            refreshControl?.attributedTitle = .init(string: message)
+        }
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
 

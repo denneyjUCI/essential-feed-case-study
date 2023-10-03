@@ -25,6 +25,8 @@ public final class FeedUIComposer {
         let feedController = makeFeedViewController(title: FeedPresenter.title)
         feedController.onRefresh = presentationAdapter.loadResource
 
+        let dateFormatter = LocalizedRelativeDateFormatter(currentDate: Date.init)
+
         presentationAdapter.presenter = LoadResourcePresenter(
             resourceView: FeedViewAdapter(
                 controller: feedController,
@@ -32,7 +34,8 @@ public final class FeedUIComposer {
                 selection: selection),
             loadingView: WeakRefVirtualProxy(feedController),
             errorView: WeakRefVirtualProxy(feedController),
-            mapper: { $0 }
+            mapper: { $0 },
+            lastUpdated: dateFormatter.string(for:)
         )
 
         return feedController
