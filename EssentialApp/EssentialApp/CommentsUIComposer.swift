@@ -23,11 +23,14 @@ public final class CommentsUIComposer {
         let commentsController = makeCommentsViewController(title: ImageCommentsPresenter.title)
         commentsController.onRefresh = commentsAdapter.loadResource
 
+        let dateFormatter = LocalizedRelativeDateFormatter(currentDate: Date.init)
+
         commentsAdapter.presenter = LoadResourcePresenter(
             resourceView: CommentsViewAdapter(controller: commentsController),
             loadingView: WeakRefVirtualProxy(commentsController),
             errorView: WeakRefVirtualProxy(commentsController),
-            mapper: { ImageCommentsPresenter.map($0) }
+            mapper: { ImageCommentsPresenter.map($0) },
+            lastUpdated: dateFormatter.string(for:)
         )
 
         return commentsController

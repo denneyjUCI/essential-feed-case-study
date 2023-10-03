@@ -82,7 +82,7 @@ final class FeedSnapshotTests: XCTestCase {
 
     private func feedWithLoadMoreIndicator() -> [CellController] {
         let loadMore = LoadMoreCellController(callback: {})
-        loadMore.display(ResourceLoadingViewModel(isLoading: true))
+        loadMore.display(ResourceLoadingViewModel(isLoading: true, message: nil))
 
         return feedWith(loadMore: loadMore)
     }
@@ -131,7 +131,7 @@ private class ImageStub: FeedImageCellControllerDelegate {
     }
 
     func didRequestImage() {
-        controller?.display(ResourceLoadingViewModel(isLoading: false))
+        controller?.display(ResourceLoadingViewModel(isLoading: false, message: ""))
 
         if let image = image {
             controller?.display(image)
