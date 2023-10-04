@@ -60,7 +60,6 @@ public final class ErrorView: UIButton {
     }
 
     private func showAnimated(_ message: String) {
-        setTitle(message, for: .normal)
         configuration?.attributedTitle = AttributedString(message, attributes: titleAttributes)
         configuration?.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 
