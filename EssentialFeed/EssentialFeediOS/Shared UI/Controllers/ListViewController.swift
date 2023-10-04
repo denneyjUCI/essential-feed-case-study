@@ -26,6 +26,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         configureErrorView()
+        configureTraitCollectionObservers()
 
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
@@ -37,6 +38,14 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         super.viewIsAppearing(animated)
 
         onViewIsAppearing?(self)
+    }
+
+    private func configureTraitCollectionObservers() {
+        registerForTraitChanges(
+            [UITraitPreferredContentSizeCategory.self]
+        ) { (self: Self, previous: UITraitCollection) in
+            self.tableView.reloadData()
+        }
     }
 
     private func configureErrorView() {
