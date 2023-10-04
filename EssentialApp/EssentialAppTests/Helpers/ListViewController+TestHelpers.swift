@@ -10,10 +10,51 @@ import EssentialFeediOS
 
 extension ListViewController {
 
-    public override func loadViewIfNeeded() {
-        super.loadViewIfNeeded()
+    func simulateAppearance() {
+        if !isViewLoaded {
+            loadViewIfNeeded()
+            prepareForFirstAppearance()
+        }
+
+        beginAppearanceTransition(true, animated: false)
+        endAppearanceTransition()
+    }
+
+    func prepareForFirstAppearance() {
+        setSmallFrameToPreventRenderingCells()
+
+    }
+
+    func setSmallFrameToPreventRenderingCells() {
         tableView.frame = .init(origin: .zero, size: .init(width: 1, height: 1))
     }
+
+    func replaceRefreshControlWithSpyForiOS17Support() {
+        let spyRefreshControl = UIRefreshControlSpy()
+
+        refreshControl?.allTargets.forEach { target in
+            refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
+                spyRefreshControl.addTarget(target, action: Selector(action), for: .valueChanged)
+            }
+        }
+
+        refreshControl = spyRefreshControl
+    }
+
+    private class UIRefreshControlSpy: UIRefreshControl {
+        private var _isRefreshing = false
+
+        override var isRefreshing: Bool { _isRefreshing }
+
+        override func beginRefreshing() {
+            _isRefreshing = true
+        }
+
+        override func endRefreshing() {
+            _isRefreshing = false
+        }
+    }
+
     func simulateUserInitiatedReload() {
         refreshControl?.simulatePullToRefresh()
     }
