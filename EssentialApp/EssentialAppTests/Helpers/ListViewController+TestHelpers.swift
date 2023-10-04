@@ -22,7 +22,7 @@ extension ListViewController {
 
     func prepareForFirstAppearance() {
         setSmallFrameToPreventRenderingCells()
-
+        replaceRefreshControlWithSpyForiOS17Support()
     }
 
     func setSmallFrameToPreventRenderingCells() {
