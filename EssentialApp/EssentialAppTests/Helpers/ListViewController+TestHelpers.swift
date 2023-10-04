@@ -26,7 +26,7 @@ extension ListViewController {
     }
 
     func setSmallFrameToPreventRenderingCells() {
-        tableView.frame = .init(origin: .zero, size: .init(width: 1, height: 1))
+        tableView.frame = .init(origin: .zero, size: .init(width: 390, height: 1))
     }
 
     func replaceRefreshControlWithSpyForiOS17Support() {
