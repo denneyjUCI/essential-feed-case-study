@@ -28,10 +28,10 @@ public final class ErrorView: UIButton {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
-        var attributes = AttributeContainer()
-        attributes.paragraphStyle = paragraphStyle
-        attributes.font = .preferredFont(forTextStyle: .body)
-        return attributes
+        return AttributeContainer([
+            .paragraphStyle: paragraphStyle,
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ])
     }
 
     private func configure() {
@@ -60,7 +60,6 @@ public final class ErrorView: UIButton {
     }
 
     private func showAnimated(_ message: String) {
-        setTitle(message, for: .normal)
         configuration?.attributedTitle = AttributedString(message, attributes: titleAttributes)
         configuration?.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 

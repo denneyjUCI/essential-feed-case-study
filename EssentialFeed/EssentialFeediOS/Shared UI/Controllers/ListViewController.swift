@@ -10,6 +10,7 @@ import EssentialFeed
 
 public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
 
+    private var onViewIsAppearing: ((ListViewController) -> Void)?
     public var onRefresh: (() -> Void)?
 
     private(set) public var errorView = ErrorView()
@@ -25,7 +26,26 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         configureErrorView()
-        refresh()
+        configureTraitCollectionObservers()
+
+        onViewIsAppearing = { vc in
+            vc.onViewIsAppearing = nil
+            vc.refresh()
+        }
+    }
+
+    public override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+
+        onViewIsAppearing?(self)
+    }
+
+    private func configureTraitCollectionObservers() {
+        registerForTraitChanges(
+            [UITraitPreferredContentSizeCategory.self]
+        ) { (self: Self, previous: UITraitCollection) in
+            self.tableView.reloadData()
+        }
     }
 
     private func configureErrorView() {
