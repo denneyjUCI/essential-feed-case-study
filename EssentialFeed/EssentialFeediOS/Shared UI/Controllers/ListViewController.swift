@@ -14,6 +14,8 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
 
     private(set) public var errorView = ErrorView()
 
+    private var onViewIsAppearing: ((ListViewController) -> Void)?
+
     private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = { .init(tableView: tableView) { tableView, index, controller in
         return controller.dataSource.tableView(tableView, cellForRowAt: index)
     }
@@ -25,7 +27,17 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         configureErrorView()
-        refresh()
+
+        onViewIsAppearing = { vc in
+            vc.onViewIsAppearing = nil
+            vc.refresh()
+        }
+    }
+
+    public override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+
+        onViewIsAppearing?(self)
     }
 
     private func configureErrorView() {
