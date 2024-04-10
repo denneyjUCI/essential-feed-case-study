@@ -50,7 +50,7 @@ class FeedUIIntegrationTests: XCTestCase {
     func test_loadMoreActions_requestsFeedFromLoader() {
         let (sut, loader) = makeSUT()
         sut.simulateAppearance()
-        loader.completeFeedLoading()
+        loader.completeFeedLoading(with: [makeImage()])
 
         XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no loading requests before load more action")
 
@@ -106,13 +106,13 @@ class FeedUIIntegrationTests: XCTestCase {
         sut.simulateAppearance()
         XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once view is loaded")
 
-        loader.completeFeedLoading(at: 0)
+        loader.completeFeedLoading(with: [makeImage()], at: 0)
         XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once loading completes successfully")
 
         sut.simulateLoadMoreFeedAction()
         XCTAssertTrue(sut.isShowingLoadMoreFeedIndicator, "Expected loading indicator on load more action")
 
-        loader.completeLoadMore(at: 0)
+        loader.completeLoadMore(with: [makeImage()], at: 0)
         XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once user-initiated load completes successfully")
 
         sut.simulateLoadMoreFeedAction()
@@ -340,10 +340,9 @@ class FeedUIIntegrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
 
         sut.simulateAppearance()
-        loader.completeFeedLoading(with: [image0, image1])
-
         XCTAssertEqual(loader.loadedImageURLs, [], "Expected no image requests until image views become visible")
 
+        loader.completeFeedLoading(with: [image0, image1])
         sut.simulateFeedImageViewVisible(at: 0)
         XCTAssertEqual(loader.loadedImageURLs, [image0.url], "Expected one image request once first image view becomes visible")
 
@@ -495,9 +494,9 @@ class FeedUIIntegrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
 
         sut.simulateAppearance()
-        loader.completeFeedLoading(with: [image0, image1])
         XCTAssertEqual(loader.loadedImageURLs, [], "Expected no image URL requests until image is near visible")
 
+        loader.completeFeedLoading(with: [image0, image1])
         sut.simulateFeedImageViewNearVisible(at: 0)
         XCTAssertEqual(loader.loadedImageURLs, [image0.url], "Expected first image URL request when first image is near visible")
 
